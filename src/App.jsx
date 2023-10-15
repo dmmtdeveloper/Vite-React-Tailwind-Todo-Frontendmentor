@@ -2,10 +2,11 @@ const App = () => {
     return (
         <div className=" bg-[url('src/assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat ">
             <header className="container mx-auto px-4 ">
-
                 <div className="flex justify-between">
-                <h1 className="font-semibold uppercase tracking-[0.2em] text-white">todo</h1>
-                <button className="text-white">luna</button>
+                    <h1 className="font-semibold uppercase tracking-[0.2em] text-white">
+                        todo
+                    </h1>
+                    <button className="text-white">luna</button>
                 </div>
 
                 <form action="">

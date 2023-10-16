@@ -1,5 +1,3 @@
-import React from "react";
-
 const TodoFilter = () => {
     return (
         <section className="container mt-8">

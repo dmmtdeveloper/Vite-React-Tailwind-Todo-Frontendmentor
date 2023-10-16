@@ -1,6 +1,6 @@
 # Descripción 🙂
 
-Aplicación de Tareas para prácticar React y Tailwind
+Aplicación de Tareas para prácticar React y Tailwind (trabajando Octubre 2023)
 
 ## Autor
 

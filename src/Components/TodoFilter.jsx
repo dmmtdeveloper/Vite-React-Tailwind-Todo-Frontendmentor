@@ -1,10 +1,7 @@
 const TodoFilter = ({ changeFilter, filter }) => {
-
-
-    
     return (
         <section className="container mt-8">
-            <div className="flex justify-center gap-16 rounded-md bg-white p-4 px-4 dark:bg-gray-700">
+            <div className="flex justify-center gap-16 rounded-md bg-white p-4 px-4 transition-all duration-1000 dark:bg-gray-800">
                 <button
                     onClick={() => changeFilter("all")}
                     className={`font-semibold ${

@@ -1,4 +1,4 @@
-import "./utils/DarkMode";
+import "./utils/darkMode";
 
 import React from "react";
 import ReactDOM from "react-dom/client";

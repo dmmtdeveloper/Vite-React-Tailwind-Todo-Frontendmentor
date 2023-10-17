@@ -1,41 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Components/Header";
 import TodoComputed from "./Components/TodoComputed";
 import TodoCreate from "./Components/TodoCreate";
 import TodoFilter from "./Components/TodoFilter";
 import TodoList from "./Components/TodoList";
 
-const initialStateTodo = [
-    {
-        id: 1,
-        title: "Go to the gym",
-        completed: true,
-    },
-    {
-        id: 2,
-        title: "Complete online course",
-        completed: false,
-    },
-    {
-        id: 3,
-        title: "10 minutes meditation",
-        completed: true,
-    },
-    {
-        id: 4,
-        title: "Pick up groceries",
-        completed: false,
-    },
+// const initialStateTodo = [
+//     {
+//         id: 1,
+//         title: "Go to the gym",
+//         completed: true,
+//     },
+//     {
+//         id: 2,
+//         title: "Complete online course",
+//         completed: false,
+//     },
+//     {
+//         id: 3,
+//         title: "10 minutes meditation",
+//         completed: true,
+//     },
+//     {
+//         id: 4,
+//         title: "Pick up groceries",
+//         completed: false,
+//     },
 
-    {
-        id: 5,
-        title: "Complete task frontendmentor",
-        completed: false,
-    },
-];
+//     {
+//         id: 5,
+//         title: "Complete task frontendmentor",
+//         completed: false,
+//     },
+// ];
+
+const initialStateTodo = JSON.parse(localStorage.getItem("todos")) || [];
 
 const App = () => {
     const [todos, setTodos] = useState(initialStateTodo);
+
+    useEffect(() => {
+        localStorage.setItem("todos", JSON.stringify(todos));
+    },[todos])
+    
 
     const createTodo = (title) => {
         const newTodo = {
@@ -83,7 +90,7 @@ const App = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-300 bg-[url('src/assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat  transition-all duration-1000 dark:bg-gray-900 dark:bg-[url('src/assets/images/bg-mobile-dark.jpg')]">
+        <div className="min-h-screen bg-gray-300 bg-[url('src/assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat  transition-all duration-1000 dark:bg-gray-900 dark:bg-[url('src/assets/images/bg-mobile-dark.jpg')] md:bg-[url('src/assets/images/bg-desktop-dark.jpg')] ">
             <Header />
 
             <main className="container mx-auto mt-8 px-4">

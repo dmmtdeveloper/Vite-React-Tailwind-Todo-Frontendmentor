@@ -66,7 +66,7 @@ const App = () => {
     };
 
     const [filter, setfilter] = useState("all");
-    
+
     const changeFilter = (filter) => setfilter(filter);
 
     const filterTodos = () => {
@@ -82,9 +82,8 @@ const App = () => {
         }
     };
 
-
     return (
-        <div className=" min-h-screen bg-gray-300 bg-[url('src/assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat ">
+        <div className=" min-h-screen bg-gray-300 bg-[url('src/assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat dark:bg-gray-900 dark:bg-[url('src/assets/images/bg-mobile-dark.jpg')]">
             <Header />
 
             <main className="container mx-auto mt-8 px-4">
@@ -101,7 +100,7 @@ const App = () => {
                     clearComplete={clearComplete}
                 />
 
-                <TodoFilter changeFilter={changeFilter}/>
+                <TodoFilter changeFilter={changeFilter} />
             </main>
 
             <footer className="mt-8 text-center font-medium text-gray-500">

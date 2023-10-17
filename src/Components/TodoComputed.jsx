@@ -2,7 +2,7 @@ import React from "react";
 
 const TodoComputed = ({ computedItemLeft, clearComplete }) => {
     return (
-        <section className="flex justify-between rounded-b-md bg-white px-5 py-5">
+        <section className="flex justify-between rounded-b-md bg-white px-5 py-5 dark:bg-gray-700">
             <span className="text-gray-400 ">
                 {computedItemLeft} items left
             </span>

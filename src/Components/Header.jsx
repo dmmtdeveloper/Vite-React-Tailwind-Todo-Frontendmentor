@@ -2,14 +2,18 @@ import { useEffect, useState } from "react";
 import MoonIcon from "./Icons/IconMoonIcon";
 import IconSun from "./Icons/IconSun";
 
+const initialStateDarkMode = document.documentElement.className.includes("dark");
+
 const Header = () => {
-    const [darkMode, setDarkMode] = useState(true);
+    const [darkMode, setDarkMode] = useState(initialStateDarkMode);
 
     useEffect(() => {
         if (darkMode) {
             document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
         } else {
             document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
         }
     }, [darkMode]);
 

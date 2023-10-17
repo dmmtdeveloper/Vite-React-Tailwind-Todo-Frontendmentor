@@ -4,14 +4,14 @@ const TodoCreate = ({ createTodo }) => {
     const [title, setTitle] = useState("");
     const handleSubmitAddTodo = (e) => {
         e.preventDefault();
-        setTitle("")
-        
-        if(!title.trim()){
-            return setTitle("")
+        setTitle("");
+
+        if (!title.trim()) {
+            return setTitle("");
         }
 
         createTodo(title);
-        setTitle("")
+        setTitle("");
     };
 
     return (

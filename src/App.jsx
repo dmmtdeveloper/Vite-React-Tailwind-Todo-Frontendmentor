@@ -44,18 +44,44 @@ const App = () => {
             completed: false,
         };
 
-        setTodos([...todos, newTodo])
+        setTodos([...todos, newTodo]);
     };
 
-
     const removeTodo = (id) => {
-        setTodos(todos.filter((todo) => todo.id !== id))
-    }
+        setTodos(todos.filter((todo) => todo.id !== id));
+    };
 
     const updateTodo = (id) => {
-      setTodos(todos.map(
-        todo => todo.id === id ? {...todo, completed: !todo.completed} :todo));
-    }
+        setTodos(
+            todos.map((todo) =>
+                todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            )
+        );
+    };
+
+    const computedItemLeft = todos.filter((todo) => !todo.completed).length;
+
+    const clearComplete = () => {
+        setTodos(todos.filter((todo) => !todo.completed));
+    };
+
+    const [filter, setfilter] = useState("all");
+    
+    const changeFilter = (filter) => setfilter(filter);
+
+    const filterTodos = () => {
+        switch (filter) {
+            case "all":
+                return todos;
+            case "active":
+                return todos.filter((todo) => !todo.completed);
+            case "completed":
+                return todos.filter((todo) => todo.completed);
+            default:
+                return todos;
+        }
+    };
+
 
     return (
         <div className=" min-h-screen bg-gray-300 bg-[url('src/assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat ">
@@ -64,11 +90,18 @@ const App = () => {
             <main className="container mx-auto mt-8 px-4">
                 <TodoCreate createTodo={createTodo} />
 
-                <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo} />
+                <TodoList
+                    todos={filterTodos()}
+                    removeTodo={removeTodo}
+                    updateTodo={updateTodo}
+                />
 
-                <TodoComputed />
+                <TodoComputed
+                    computedItemLeft={computedItemLeft}
+                    clearComplete={clearComplete}
+                />
 
-                <TodoFilter />
+                <TodoFilter changeFilter={changeFilter}/>
             </main>
 
             <footer className="mt-8 text-center font-medium text-gray-500">

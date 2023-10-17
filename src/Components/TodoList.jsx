@@ -1,10 +1,15 @@
 import TodoItem from "./TodoItem.jsx";
 
-const TodoList = ({ todos, removetodo, updateTodo }) => {
+const TodoList = ({ todos, removeTodo, updateTodo }) => {
     return (
         <div className="mt-8 rounded-t-md bg-white [&>article]:p-5">
             {todos.map((todo) => (
-                <TodoItem key={todo.id} todo={todo} removetodo={removetodo} updateTodo={updateTodo}/>
+                <TodoItem
+                    key={todo.id}
+                    todo={todo}
+                    removeTodo={removeTodo}
+                    updateTodo={updateTodo}
+                />
             ))}
         </div>
     );
